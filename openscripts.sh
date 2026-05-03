@@ -14,6 +14,7 @@ COMMANDS=(
     "django|scripts/django-manage.sh|Run Django management commands"
     "macos-cleanup|scripts/macos-cleanup.sh|Selective macOS disk cleanup"
     "ssh|scripts/ssh-manage.sh|Manage local SSH keys"
+    "caesar|scripts/caesar-cipher.sh|Encrypt or decrypt text with the Caesar cipher"
     "install-lazydocker|scripts/installers/install-lazydocker.sh|Install lazydocker"
 )
 

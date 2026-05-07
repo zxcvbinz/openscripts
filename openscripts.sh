@@ -15,6 +15,7 @@ COMMANDS=(
     "macos-cleanup|scripts/macos-cleanup.sh|Selective macOS disk cleanup"
     "ssh|scripts/ssh-manage.sh|Manage local SSH keys"
     "caesar|scripts/caesar-cipher.sh|Encrypt or decrypt text with the Caesar cipher"
+    "calc|scripts/scientific-calc.sh|Scientific calculator (arithmetic, trig, log, sqrt)"
     "ai-skills|scripts/ai-skills-manage.sh|List and install AI skills"
     "install-lazydocker|scripts/installers/install-lazydocker.sh|Install lazydocker"
 )

@@ -44,6 +44,17 @@ Commands:
   list              Show managed dotfiles and which are present in \$HOME
   help              Show this message
 
+Examples:
+  $0 list
+  $0 export ~/dotfiles-backup
+  $0 export /tmp/dotfiles-\$(date +%Y%m%d)
+  $0 import ~/dotfiles-backup
+
+Notes:
+  - Only regular files are copied; symlinks and directories are skipped.
+  - On import, every existing file in \$HOME is renamed to
+    <name>.bak.<timestamp> before being overwritten.
+
 Managed dotfiles:
 EOF
     local d

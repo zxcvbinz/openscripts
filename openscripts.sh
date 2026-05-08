@@ -18,6 +18,7 @@ COMMANDS=(
     "caesar|scripts/caesar-cipher.sh|Encrypt or decrypt text with the Caesar cipher"
     "calc|scripts/scientific-calc.sh|Scientific calculator (arithmetic, trig, log, sqrt)"
     "ai-skills|scripts/ai-skills-manage.sh|List and install AI skills"
+    "devtools-checkup|scripts/devtools-checkup.sh|Check installed dev tools (Git, Xcode, Node, Python, Ruby, Docker)"
     "install-lazydocker|scripts/installers/install-lazydocker.sh|Install lazydocker"
     "install-openscripts|scripts/installers/install-openscripts.sh|Symlink openscripts to /usr/local/bin (install/uninstall/status)"
 )

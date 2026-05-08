@@ -14,6 +14,7 @@ COMMANDS=(
     "django|scripts/django-manage.sh|Run Django management commands"
     "macos-cleanup|scripts/macos-cleanup.sh|Selective macOS disk cleanup"
     "ssh|scripts/ssh-manage.sh|Manage local SSH keys"
+    "ssh-keygen|scripts/ssh-keygen.sh|Generate a new SSH key (Ed25519/RSA) and update SSH config"
     "caesar|scripts/caesar-cipher.sh|Encrypt or decrypt text with the Caesar cipher"
     "calc|scripts/scientific-calc.sh|Scientific calculator (arithmetic, trig, log, sqrt)"
     "ai-skills|scripts/ai-skills-manage.sh|List and install AI skills"

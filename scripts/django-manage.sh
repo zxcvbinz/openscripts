@@ -3,12 +3,20 @@
 function show_help() {
   echo -e "Usage: $0 <command> [parameters]\n"
   echo "Available commands:"
-  printf "  %-40s %s\n" "migrate" "Run database migrations"
-  printf "  %-40s %s\n" "start" "Start Django application"
+  printf "  %-40s %s\n" "migrate" "Run makemigrations and migrate"
+  printf "  %-40s %s\n" "start" "Start the Django development server"
   printf "  %-40s %s\n" "createsuperuser" "Create a Django superuser"
-  printf "  %-40s %s\n" "list" "List migrations"
-  printf "  %-40s %s\n" "sqlmigrate <app_name> <migrate_number>" "Run sqlmigrate for a specific app and migration number"
+  printf "  %-40s %s\n" "list" "List migrations (showmigrations)"
+  printf "  %-40s %s\n" "sqlmigrate <app_name> <migrate_number>" "Print SQL for a specific migration"
   echo
+  echo "Examples:"
+  printf "  %s\n" "$0 migrate"
+  printf "  %s\n" "$0 start"
+  printf "  %s\n" "$0 createsuperuser"
+  printf "  %s\n" "$0 list"
+  printf "  %s\n" "$0 sqlmigrate myapp 0001"
+  echo
+  echo "Run from a directory containing manage.py."
   exit 1
 }
 

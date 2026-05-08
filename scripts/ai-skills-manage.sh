@@ -78,7 +78,10 @@ action_install() {
     echo "----------------------------------------------"
     echo "Avvio installazione: ${paths[$idx]}"
     echo "----------------------------------------------"
-    bash "$installer"
+    if ! bash "$installer"; then
+        echo "Errore: installazione fallita." >&2
+        return 1
+    fi
 }
 
 # ---------------------------------------------------------------------------
@@ -99,7 +102,7 @@ read -p "Scelta: " choice
 
 case "$choice" in
     1) action_list ;;
-    2) action_install ;;
+    2) action_install || exit $? ;;
     q | Q) echo "Bye."; exit 0 ;;
     *) echo "Errore: opzione non valida." >&2; exit 1 ;;
 esac

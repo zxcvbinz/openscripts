@@ -18,6 +18,7 @@ COMMANDS=(
     "calc|scripts/scientific-calc.sh|Scientific calculator (arithmetic, trig, log, sqrt)"
     "ai-skills|scripts/ai-skills-manage.sh|List and install AI skills"
     "install-lazydocker|scripts/installers/install-lazydocker.sh|Install lazydocker"
+    "install-openscripts|scripts/installers/install-openscripts.sh|Symlink openscripts to /usr/local/bin (install/uninstall/status)"
 )
 
 show_help() {

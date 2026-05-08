@@ -24,6 +24,41 @@ TARGETS=(
     "System caches|/Library/Caches"
 )
 
+show_help() {
+    cat <<EOF
+Usage: $0 [help]
+
+Interactive macOS disk-cleanup utility. Lists a curated set of cache and
+log directories with their current size and lets you wipe one, several,
+or all of them.
+
+Targets include user/system caches and logs, the Trash, saved
+application state, Xcode DerivedData/Archives, iOS Simulator caches and
+the caches of common package managers (Homebrew, npm, Yarn, pip,
+Gradle).
+
+At the prompt:
+  - 'a' or 'all'    clean every listed target
+  - '1,3,5'         clean only the targets at indexes 1, 3 and 5
+  - 'q'             quit without cleaning anything
+
+Each run asks for an explicit confirmation before any directory is
+touched. Items requiring root (e.g. /Library/Caches) are skipped unless
+the script is invoked with sudo.
+
+Examples:
+  $0
+  sudo $0
+EOF
+}
+
+case "${1:-}" in
+    -h | --help | help)
+        show_help
+        exit 0
+        ;;
+esac
+
 if [ "$(uname)" != "Darwin" ]; then
     echo "Error: this script supports macOS (Darwin) only." >&2
     exit 1

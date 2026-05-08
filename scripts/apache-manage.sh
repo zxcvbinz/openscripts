@@ -1,5 +1,40 @@
 #!/bin/bash
 
+# Apache virtual-host manager: interactive helper for creating, listing
+# and removing Apache sites under /usr/local/apache2, plus a flow for
+# obtaining a Let's Encrypt certificate via certbot. Must be run as root
+# because it edits httpd.conf and reloads Apache.
+
+show_help() {
+    cat <<EOF
+Usage: $0 [help]
+
+Interactive Apache virtual-host manager. Must be run as root.
+
+The script prints a menu with the following options:
+  1. Create a new site             (HTTP, folder or reverse proxy)
+  2. Show enabled sites            (list ServerName from extra/*.conf)
+  3. Remove a site                 (drop config + log dir, reload Apache)
+  4. Create SSL certificate        (HTTP+HTTPS vhosts, certbot --webroot)
+
+Paths used:
+  /usr/local/apache2/conf/extra/<site>.conf   per-site config
+  /usr/local/apache2/conf/httpd.conf          Include directives appended here
+  /usr/local/apache2/logs/<site>/             access.log, error.log
+
+Examples:
+  sudo $0
+  sudo $0 help
+EOF
+}
+
+case "${1:-}" in
+    -h | --help | help)
+        show_help
+        exit 0
+        ;;
+esac
+
 # Check if script is being run as root
 if [ "$(id -u)" -ne 0 ]; then
     echo "Error: script must be run as root." >&2

@@ -413,6 +413,41 @@ print_menu() {
     echo "----------------------------------------------"
 }
 
+show_help() {
+    cat <<EOF
+Usage: $0 [help]
+
+Interactive local SSH key manager for $SSH_DIR.
+
+The script prints a menu with the following options:
+  1. List keys                 show every private/public key with mode + algorithm
+  2. Categorize keys by type   group public keys by algorithm (Ed25519, RSA, ...)
+  3. View a public key         print the contents of a chosen .pub file
+  4. View a private key        print a private key after an explicit confirmation
+  5. Create a new key          run ssh-keygen with safe defaults (Ed25519/RSA/ECDSA)
+  6. Fix permissions           normalize $SSH_DIR (700) and key modes (600 / 644)
+  q. Quit
+
+Environment:
+  SSH_DIR      Override the SSH directory (default: \$HOME/.ssh)
+
+Examples:
+  $0
+  SSH_DIR=/tmp/ssh $0
+  $0 help
+
+For non-interactive key generation/removal, use the dedicated commands
+'ssh-keygen' and 'ssh-keyremove'.
+EOF
+}
+
+case "${1:-}" in
+    -h | --help | help)
+        show_help
+        exit 0
+        ;;
+esac
+
 print_menu
 read -p "Enter your choice: " choice
 

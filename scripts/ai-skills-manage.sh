@@ -97,6 +97,34 @@ print_menu() {
     echo "----------------------------------------------"
 }
 
+show_help() {
+    cat <<EOF
+Usage: $0 [help]
+
+Gestore interattivo delle skill AI installabili da questo progetto.
+
+Il menu offre le seguenti opzioni:
+  1. Visualizza skill disponibili   elenca nome e descrizione di ogni skill
+  2. Installa una skill             esegue il relativo installer in $SKILLS_DIR
+  q. Esci
+
+Per registrare una nuova skill, aggiungi l'installer in
+$SKILLS_DIR
+e una voce nell'array SKILLS in cima a questo script.
+
+Esempi:
+  $0
+  $0 help
+EOF
+}
+
+case "${1:-}" in
+    -h | --help | help)
+        show_help
+        exit 0
+        ;;
+esac
+
 print_menu
 read -p "Scelta: " choice
 
